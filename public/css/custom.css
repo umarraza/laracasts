@@ -1,0 +1,6 @@
+.container{
+    margin-top: 3em;
+}
+.is-completed{
+    text-decoration: line-through;
+}
