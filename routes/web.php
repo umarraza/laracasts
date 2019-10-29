@@ -7,11 +7,11 @@
 |
 |   Auto Resolving, Serivce Container:
 |
-|   Serivce Container is big block of key value pairs. To get out of the service container, we can use two methods, app() & resolve()
+|   Serivce Container is big block of key value pairs. To get things out of the service container, we can use two methods, app() & resolve()
 |
-|   To Put something into the container, resolve()->bind(). What if try get something that is not register in the container? Error will be thrown like Class
-|   example does not exist.
-|
+|   To Put something into the container, app()->bind() or resolve()->bind(). What if try get something that is not register in the container? 
+|   Error will be thrown like Class example does not exist.
+|   
 |   Laravel is going to do No of chekcs, Do i have in the container something called example? If It does not have anthing there. Then its gonna check outside
 |   of the container. Maybe its a class name? rsolve(App\Example). In this case, It is not a class name. It is just a string. We can give a class name to the
 |   conatiner and it will give us the instance of the class. In case of string, this is gonna through an exception.

@@ -23,7 +23,6 @@ class ProjectsController extends Controller
     {
         $apiKey = $twitter->apiKey;
         $apiSecret = $twitter->apiSecret;
-
         // Prefer easy Readabillity
 
         $projects = auth()->user()->projects;
@@ -90,20 +89,23 @@ class ProjectsController extends Controller
         // if ($project->owner_id !== auth()->id()) {
         //     abort(403);
         // }
+
         // abort_if( $project->owner_id !== auth()->id(), 403);
         // abort_if( !auth()->user()->owns($project), 403);
         // abort_unless( !auth()->user()->owns($project), 403);
 
         // ===== GATE ===== //
-        // abort_if(\Gate::denies('update', $project), 403);
-        // abort_unless(\Gate::allows('update', $project), 403);
-        // \Gate::denies('update', $project) ? abort(403) : '';
-        // if (\Gate::denies('update', $project)) {
+        // abort_if(\Gate::denies('view', $project), 403);
+        // abort_unless(\Gate::allows('view', $project), 403);
+        // \Gate::denies('view', $project) ? abort(403) : '';
+        // if (\Gate::denies('view', $project)) {
         //     abort(403);
         // }
-        // ===== POLICY ===== //
-        $this->authorize('view', $project); // jeffery way's approach
 
+        // ===== POLICY ===== //
+        // authorize to view the given project
+        
+        $this->authorize('view', $project); // jeffery way's approach
         $tasks = $project->tasks;
         return view('projects.show')->withProject($project)->withTasks($tasks);
     }

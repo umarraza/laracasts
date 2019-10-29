@@ -40,7 +40,7 @@ class ProjectPolicy
          *  application to view the project? we can do like
          *  given method below. But, It is a clucnky way to 
          *  authorize. Instead, we can register a 'before'
-         *  hook in authServiceProvide that is going to
+         *  hook in AuthServiceProvider that is going to
          *  trigger before hitting the below given logic.
          * 
          *  return $project->owner_id == $user->id || $user->id == $user->admin->id;
@@ -48,9 +48,6 @@ class ProjectPolicy
 
         return $project->owner_id == $user->id;
         
-
-
-
     }
 
     /**
